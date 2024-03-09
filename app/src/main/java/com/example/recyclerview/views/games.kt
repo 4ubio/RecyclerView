@@ -1,12 +1,9 @@
 package com.example.recyclerview.views
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -28,18 +25,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.recyclerview.R
+import com.example.recyclerview.models.Game
 
-@Preview(showBackground = true)
 @Composable
-fun CardGame() {
+fun CardGame(game: Game) {
     Card (modifier = Modifier.padding(8.dp)) {
         Row (modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)) {
             //Imagen
             Image(
-                painter = painterResource(id = R.drawable.pk_ss),
-                contentDescription = "PK_SS",
+                painter = painterResource(id = game.image),
+                contentDescription = "PK",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(120.dp)
@@ -50,7 +47,7 @@ fun CardGame() {
 
             Column () {
                 Text(
-                    text = "Pokemon Soul Silver",
+                    text = game.name,
                     color = Color(0xFF000000),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
@@ -59,7 +56,7 @@ fun CardGame() {
 
                 Spacer(modifier = Modifier.height(5.dp))
 
-                GameData()
+                GameData(game.console, game.price)
 
                 Spacer(modifier = Modifier.height(5.dp))
 
@@ -79,3 +76,8 @@ fun CardGame() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PreviewCard() {
+    CardGame(game = Game("Pokemon SoulSilver", 1000, "Nintendo DS", R.drawable.pk_ss))
+}

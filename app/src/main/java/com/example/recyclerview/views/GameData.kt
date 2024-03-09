@@ -12,13 +12,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.recyclerview.R
+import com.example.recyclerview.models.Game
 
-@Preview(showBackground = true)
 @Composable
-fun GameData() {
+fun GameData(console: String, price: Int) {
     Row () {
         Text(
-            text = "Nintendo DS",
+            text = console,
             color = Color(0xFF000000),
             fontSize = 15.sp,
             modifier = Modifier.padding(top = 5.dp)
@@ -27,10 +28,15 @@ fun GameData() {
         Spacer(modifier = Modifier.width(15.dp))
 
         Text(
-            text = "$1600",
+            text = "$$price",
             color = Color(0xFF009688),
             fontSize = 15.sp,
             modifier = Modifier.padding(top = 5.dp)
         )
     }
+}
+@Preview(showBackground = true)
+@Composable
+fun PreviewData() {
+    GameData("Nintendo DS", 1600)
 }

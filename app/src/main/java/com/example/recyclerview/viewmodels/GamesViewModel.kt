@@ -15,7 +15,7 @@ class GamesViewModel: ViewModel() {
         var gameList: ArrayList<Game> = ArrayList<Game>()
         gameList.add(game)
 
-        gameList.add(Game("Pokemon HeartGold", 1000, "Nintendo DS", R.drawable.pk_ss))
+        gameList.add(Game("Pokemon HeartGold", 1000, "Nintendo DS", R.drawable.pk_hg))
         gameList.add(Game("Pokemon White", 1100, "Nintendo DS", R.drawable.pk_b))
         gameList.add(Game("Pokemon Black", 1100, "Nintendo DS", R.drawable.pk_n))
         gameList.add(Game("Pokemon White 2", 1100, "Nintendo DS", R.drawable.pk_b2))
